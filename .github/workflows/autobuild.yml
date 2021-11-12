@@ -73,6 +73,7 @@ jobs:
 
       - name: Generate configuration file
         run: |
+          cd immortalwrt
           rm -f ./.config*
           cp ../makeconfig.d/21.02/x86_64.config ./.config
           #touch ./.config
@@ -82,12 +83,14 @@ jobs:
 
       - name: Make download
         run: |
+          cd immortalwrt
           make download -j8 || make download -j1 V=s
           rm -rf $(find ./dl/ -size -1024c)
           df -h
 
       - name: Compile firmware
         run: |
+          cd immortalwrt
           make -j$(nproc) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
@@ -102,10 +105,10 @@ jobs:
           mkdir -p ./artifact/firmware
           mkdir -p ./artifact/package
           mkdir -p ./artifact/buildinfo
-          rm -rf $(find ./bin/targets/ -type d -name "packages")
-          cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
-          cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
-          cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
+          rm -rf $(find ./immortalwrt/bin/targets/ -type d -name "packages")
+          cp -rf $(find ./immortalwrt/bin/targets/ -type f) ./artifact/firmware/
+          cp -rf $(find ./immortalwrt/bin/packages/ -type f -name "*.ipk") ./artifact/package/
+          cp -rf $(find ./immortalwrt/bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
 
       - name: Deliver buildinfo
         uses: actions/upload-artifact@v2
@@ -123,7 +126,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/
+          path: ./artifact/firmware/
 
       - name: Upload release asset
         if: github.event == 'release'
