@@ -66,6 +66,8 @@ jobs:
       - name: Update feeds
         run: |
           pwd
+          cd immortalwrt
+          pwd
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
