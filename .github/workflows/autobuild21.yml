@@ -25,7 +25,7 @@ jobs:
 
   build_openwrt:
 
-    name: Build OpenWrt firmware
+    name: Build ImmortalWrt 21.02 firmware
 
     runs-on: ubuntu-latest
 
