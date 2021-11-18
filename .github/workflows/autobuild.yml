@@ -91,6 +91,7 @@ jobs:
       - name: Compile firmware
         run: |
           cd immortalwrt
+          echo "$(nproc) CPU work!"
           make -j$(nproc) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
@@ -126,7 +127,19 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./artifact/firmware/
+          path: ./immortalwrt/bin/targets/
+
+      - name: Deliver firmware1
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt_firmware1
+          file: ./immortalwrt/bin/targets/x86/64/immortalwrt-x86-64-generic-squashfs-combined.img.gz
+
+      - name: Deliver firmware2
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt_firmware2
+          file: ./immortalwrt/bin/targets/x86/64/immortalwrt-x86-64-generic-squashfs-combined-efi.img.gz
 
       - name: Upload release asset
         if: github.event == 'release'
