@@ -1,4 +1,4 @@
-# AutoBuild-immortalwrt
+# AutoBuild-OpenWrt
 每天用最新代码自动编译ImmortalWrt 18.06、21.02版本以及LEDE固件
 
 把要编译的固件配置文件.config放入相对应的makeconfig.d中相对应的版本目录内，然后在.github/workflows目录中更新相对应的yml文件，yml文件中arch: [x86_64, xiaomi_redmi_ac2100]
