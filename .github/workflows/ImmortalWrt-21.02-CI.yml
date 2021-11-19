@@ -10,11 +10,11 @@
 name: ImmortalWrt 21.02 CI
 
 on:
-  push:
-    branches: 
-      - main
-    paths: 
-      - 'makeconfig.d/21.02/**'
+  #push:
+  #  branches: 
+  #    - main
+  #  paths: 
+  #    - 'makeconfig.d/21.02/**'
       
   schedule: 
     - cron: 7 15 * * *
