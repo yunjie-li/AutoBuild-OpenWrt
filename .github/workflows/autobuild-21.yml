@@ -10,11 +10,11 @@
 name: AutoBuild-V21.02
 
 on:
-  #push:
-  #  branches: 
-  #    - main
-  #  paths: 
-  #    - 'makeconfig.d/21.02/**'
+  push:
+    branches: 
+      - main
+    paths: 
+      - 'makeconfig.d/21.02/**'
       
   schedule: 
     - cron: 7 15 * * *
