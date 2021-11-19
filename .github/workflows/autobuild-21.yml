@@ -31,8 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          arch: [x86_64, xiaomi_redmi_ac2100, r2s]
+        arch: [x86_64, xiaomi_redmi_ac2100, r2s]
 
     if: github.event.repository.owner.id == github.event.sender.id
 
