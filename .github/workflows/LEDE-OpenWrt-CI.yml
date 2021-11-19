@@ -7,14 +7,14 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: LEDE OpenWrt
+name: LEDE OpenWrt 18.06
 
 on:
-  push:
-    branches: 
-      - main
-    paths: 
-      - 'makeconfig.d/lede/**'
+  #push:
+  #  branches: 
+  #    - main
+  #  paths: 
+  #    - 'makeconfig.d/lede/**'
       
   schedule: 
     - cron: 3 15 * * *
