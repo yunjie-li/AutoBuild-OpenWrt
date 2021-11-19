@@ -141,7 +141,7 @@ jobs:
           name: ${{ matrix.arch }}_OpenWrt_firmware
           path: ./immortalwrt/bin/targets/
 
-       - name: Upload release asset
+      - name: Upload release asset
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
