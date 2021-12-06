@@ -81,10 +81,9 @@ jobs:
       - name: Generate configuration file
         run: |
           cd immortalwrt
+          sed -i 's/192.168.1.1/192.168.30.1/g' ./package/base-files/files/bin/config_generate
           rm -f ./.config*
           cp ../makeconfig.d/21.02/${{ matrix.arch }}.config ./.config
-          #touch ./.config
-
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
 
@@ -106,7 +105,7 @@ jobs:
           df -h
           echo "======================="
           du -h ./ --max-depth=1
-          du -h /mnt/openwrt/ --max-depth=1 || true
+#          du -h /mnt/openwrt/ --max-depth=1 || true
 
       - name: Prepare artifact
         run: |
