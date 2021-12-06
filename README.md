@@ -1,5 +1,6 @@
 # AutoBuild-OpenWrt
 每天用最新代码自动编译ImmortalWrt 18.06、21.02版本以及LEDE固件
+
 缺省ip:192.168.30.1
 用户名:root
 密码:password
