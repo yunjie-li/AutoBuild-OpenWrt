@@ -128,18 +128,21 @@ jobs:
         with:
           name: ${{ matrix.arch }}_OpenWrt_buildinfo
           path: ./artifact/buildinfo/
+          retention-days: 10
 
       - name: Deliver package
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.arch }}_OpenWrt_package
           path: ./artifact/package/
+          retention-days: 10
 
       - name: Deliver firmware
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.arch }}_OpenWrt_firmware
           path: ./immortalwrt/bin/targets/
+          retention-days: 10
 
       - name: Upload release asset
         if: github.event == 'release'
