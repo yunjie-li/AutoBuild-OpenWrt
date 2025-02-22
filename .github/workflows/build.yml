@@ -79,7 +79,8 @@ jobs:
           sudo mkdir -p /mnt/openwrt
 
           cd /mnt/openwrt
-          ls  ${GITHUB_WORKSPACE}/
+          ls -l ${GITHUB_WORKSPACE}/
+          sudo chmod +x ${GITHUB_WORKSPACE}/build.sh
           sudo ${GITHUB_WORKSPACE}/build.sh "${GITHUB_WORKSPACE}/${{ matrix.config }}"
 
           ls -al
