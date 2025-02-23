@@ -109,6 +109,9 @@ rm -rf packages *.buildinfo *.manifest *.bin sha256sums
 
 # rm -f *.img.gz
 # gzip -f *.img
+rm -f *-ext4-*
+rm -f *generic-squashfs-rootfs.img.gz
+
 
 mv -f *.img.gz "${WORKSPACE}"
 
