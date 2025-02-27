@@ -17,10 +17,6 @@ on:
   #    - 'makeconfig.d/21.02/**'
   workflow_dispatch:
     inputs:
-      arch:
-        description: '选择设备'
-        required: false
-        default: 'x86_64'
       debug_enabled:
         description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
         required: false
@@ -108,7 +104,7 @@ jobs:
           plugins=(git)
           source $ZSH/oh-my-zsh.sh
           EOF
-          sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+          sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' ./package/base-files/files/etc/passwd
           cd immortalwrt
           sed -i 's/192.168.1.1/192.168.2.253/g' ./package/base-files/files/bin/config_generate
           rm -f ./.config*
